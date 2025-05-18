@@ -1,4 +1,4 @@
-javascript:(()=> {
+javascript:(()=>{
   const loginCorreto = "leo";
   const senhaCorreta = "leo";
 
@@ -11,6 +11,7 @@ javascript:(()=> {
   }
 
   alert("🚨 MOD MENU EXCLUSIVO PARA A SALA DO FUTURO\n\nDesenvolvido por Leonardo F.G\n\n⚠️ PROIBIDO copiar, vender ou repassar o script.\n\nQualquer uso indevido resultará em BANIMENTO PERMANENTE por IP.\n\nUse com responsabilidade!");
+  alert("🫡 SALVE PARA OS BRABOS QUE USAM O MOD MENU:\n\nJOÃO / KAYRO / ERICK VINI / WAGNER / GUI HENRIQUE");
 
   const style = document.createElement("style");
   style.innerHTML = `
