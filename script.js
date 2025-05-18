@@ -191,5 +191,6 @@ javascript:(()=>{
   });
 
   document.body.appendChild(botaoFlutuante);
-  criarMenu();
+  // <== retirar essa linha para corrigir o problema
+  // criarMenu();
 })();
