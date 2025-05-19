@@ -2,11 +2,11 @@ javascript:(()=>{
   const loginCorreto = "leo";
   const senhaCorreta = "leo";
 
-  const inputLogin = prompt("Login:");
-  const inputSenha = prompt("Senha:");
+  const inputLogin = prompt("👤 Por favor, digite seu LOGIN:");
+  const inputSenha = prompt("🔒 Agora digite sua SENHA:");
 
   if (inputLogin !== loginCorreto || inputSenha !== senhaCorreta) {
-    alert("Login ou senha incorretos!");
+    alert("❌ Login ou senha incorretos! Tente novamente.");
     return;
   }
 
@@ -26,20 +26,27 @@ javascript:(()=>{
       background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
       color: black;
       border: none;
-      padding: 10px;
-      margin: 5px 0;
+      padding: 12px 15px;
+      margin: 10px 0;
       font-weight: bold;
       border-radius: 10px;
       cursor: pointer;
       animation: glow 1.5s infinite alternate;
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 16px;
+      transition: background 0.3s ease;
+    }
+    .rgb-button:hover {
+      filter: brightness(1.2);
     }
     .rgb-fechar-x {
       position: absolute;
-      top: 5px;
-      right: 10px;
+      top: 8px;
+      right: 12px;
       color: white;
       font-weight: bold;
-      font-size: 16px;
+      font-size: 18px;
       cursor: pointer;
     }
     .flutuante {
@@ -52,12 +59,15 @@ javascript:(()=>{
       border-radius: 50%;
       box-shadow: 0 0 15px rgba(255,255,255,0.5);
       z-index: 9999;
-      cursor: grab;
+      cursor: pointer;
       animation: glow 2s infinite alternate;
-      touch-action: none;
       display: flex;
       align-items: center;
       justify-content: center;
+      user-select: none;
+      font-weight: bold;
+      font-size: 24px;
+      color: black;
     }
     .aviso-texto {
       margin-top: 15px;
@@ -74,39 +84,47 @@ javascript:(()=>{
       user-select: none;
       animation: glow 3s infinite alternate;
     }
+    #bobMenu {
+      max-width: 320px;
+    }
   `;
   document.head.appendChild(style);
 
   const criarMenu = () => {
+    if(document.getElementById("bobMenu")) return; // evita criar menu duplicado
+
     const menu = document.createElement("div");
     menu.id = "bobMenu";
     menu.style = `
-      position:fixed;
-      top:100px;
-      left:100px;
-      background:linear-gradient(135deg, #111, #1a1a1a);
-      color:white;
-      padding:15px;
-      border-radius:15px;
-      z-index:9999;
-      font-family:sans-serif;
-      max-width:90vw;
+      position: fixed;
+      top: 100px;
+      left: 100px;
+      background: linear-gradient(135deg, #111, #1a1a1a);
+      color: white;
+      padding: 20px 20px 25px 20px;
+      border-radius: 15px;
+      z-index: 9999;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 90vw;
       border: 2px solid;
       animation: glow 1s infinite alternate;
       box-shadow: 0 0 20px rgba(0,255,255,0.5);
+      user-select: none;
     `;
 
     const fecharX = document.createElement("div");
     fecharX.className = "rgb-fechar-x";
     fecharX.innerText = "✖";
+    fecharX.title = "Fechar menu";
     fecharX.onclick = () => menu.remove();
     menu.appendChild(fecharX);
 
     const titulo = document.createElement("h3");
     titulo.innerText = "👑 BOB MODS FF - ESCOLA";
-    titulo.style = "text-align:center;margin-bottom:10px;font-size:18px;";
+    titulo.style = "text-align:center; margin-bottom:15px; font-size:20px;";
     menu.appendChild(titulo);
 
+    // Botões organizados em coluna com espaçamento melhorado
     const botaoSalaDoFuturo = document.createElement("button");
     botaoSalaDoFuturo.innerText = "✅ HACK TAREFA";
     botaoSalaDoFuturo.className = "rgb-button";
@@ -114,7 +132,7 @@ javascript:(()=>{
       fetch("https://corsproxy.io/?url=https://raw.githubusercontent.com/DarkModde/Dark-Scripts/refs/heads/main/TarefaResolver.js")
         .then(t => t.text())
         .then(eval)
-        .catch(e => alert("Erro ao carregar o script da Tarefa."));
+        .catch(() => alert("❌ Erro ao carregar o script da Tarefa."));
     };
     menu.appendChild(botaoSalaDoFuturo);
 
@@ -125,7 +143,7 @@ javascript:(()=>{
       fetch("https://corsproxy.io/?url=https://raw.githubusercontent.com/DarkModde/Dark-Scripts/refs/heads/main/RedaSP-IA.js")
         .then(t => t.text())
         .then(eval)
-        .catch(e => alert("Erro ao carregar o script de Redação."));
+        .catch(() => alert("❌ Erro ao carregar o script de Redação."));
     };
     menu.appendChild(botaoRedacao);
 
@@ -137,11 +155,11 @@ javascript:(()=>{
     menu.appendChild(aviso);
 
     const separador = document.createElement("hr");
-    separador.style = "margin:10px 0;border:1px solid #444;";
+    separador.style = "margin: 15px 0; border: 1px solid #444;";
     menu.appendChild(separador);
 
     const botaoDiscord = document.createElement("button");
-    botaoDiscord.innerText = "🌐 DISCORD DO PROJETO";
+    botaoDiscord.innerText = "🌐 DISCORD DO BOB MODS";
     botaoDiscord.className = "rgb-button";
     botaoDiscord.onclick = () => {
       window.open("https://discord.gg/fsYtn3z6", "_blank");
@@ -150,7 +168,7 @@ javascript:(()=>{
 
     const criador = document.createElement("p");
     criador.innerText = "Criador: Leonardo F.G";
-    criador.style = "margin-top:10px;font-size:12px;color:#ccc;text-align:center;";
+    criador.style = "margin-top: 15px; font-size: 12px; color: #ccc; text-align: center;";
     menu.appendChild(criador);
 
     document.body.appendChild(menu);
@@ -164,33 +182,10 @@ javascript:(()=>{
     if (!document.getElementById("bobMenu")) criarMenu();
   };
 
-  let offsetX = 0, offsetY = 0;
-  let isDragging = false;
-
-  botaoFlutuante.addEventListener("touchstart", function(e) {
-    isDragging = true;
-    const touch = e.touches[0];
-    offsetX = touch.clientX - botaoFlutuante.getBoundingClientRect().left;
-    offsetY = touch.clientY - botaoFlutuante.getBoundingClientRect().top;
-    e.preventDefault();
-  });
-
-  document.addEventListener("touchmove", function(e) {
-    if (!isDragging) return;
-    const touch = e.touches[0];
-    const left = touch.clientX - offsetX;
-    const top = touch.clientY - offsetY;
-    botaoFlutuante.style.left = left + "px";
-    botaoFlutuante.style.top = top + "px";
-    botaoFlutuante.style.bottom = "auto";
-    botaoFlutuante.style.right = "auto";
-  });
-
-  document.addEventListener("touchend", function() {
-    isDragging = false;
-  });
-
+  // Bolinha parada no canto inferior direito, sem drag
   document.body.appendChild(botaoFlutuante);
-  // <== retirar essa linha para corrigir o problema
-  // criarMenu();
+
+  criarMenu();
 })();
+
+
