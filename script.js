@@ -1,6 +1,6 @@
 javascript:(()=>{
-  const loginCorreto = "leo";
-  const senhaCorreta = "leo";
+  const loginCorreto = "donoleo";
+  const senhaCorreta = "leo157123";
 
   const inputLogin = prompt("👤 Por favor, digite seu LOGIN:");
   const inputSenha = prompt("🔒 Agora digite sua SENHA:");
