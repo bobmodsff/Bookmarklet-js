@@ -1,2 +1,2 @@
-# Bookmarklet-js5
+# Bookmarklet-js
 Script Sala do futuro
