@@ -1,15 +1,5 @@
 javascript:(()=>{
-const versaoAtual = "1.0";
-
-fetch("https://raw.githubusercontent.com/SEU-USUARIO/SEU-REPO/main/versao.txt")
-  .then(res => res.text())
-  .then(versaoOnline => {
-    if (versaoOnline.trim() !== versaoAtual) {
-      alert("❗ SCRIPT FOI ATUALIZADO!!!!\n\nAcesse a nova versão no canal ou no GitHub.");
-      throw new Error("Script desatualizado.");
-    }
-
-    const loginCorreto="wagner",senhaCorreta="modvipleo",inputLogin=prompt("👤 Por favor, digite seu LOGIN:"),inputSenha=prompt("🔒 Agora digite sua SENHA:");
+const loginCorreto="wagner",senhaCorreta="modvipleo",inputLogin=prompt("👤 Por favor, digite seu LOGIN:"),inputSenha=prompt("🔒 Agora digite sua SENHA:");
     if(inputLogin!==loginCorreto||inputSenha!==senhaCorreta)return void alert("❌ Login ou senha incorretos! Tente novamente.");
 
     alert("🚨 MOD MENU EXCLUSIVO PARA A SALA DO FUTURO\n\nDesenvolvido por Leonardo F.G\n\n⚠️ PROIBIDO copiar, vender ou repassar o script.\n\nQualquer uso indevido resultará em BANIMENTO PERMANENTE por IP.\n\nUse com responsabilidade!");
