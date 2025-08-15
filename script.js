@@ -119,7 +119,6 @@ javascript:(() => {
       font-weight: bolder;
       font-family: 'Segoe UI Black', Tahoma, Geneva, Verdana, sans-serif;
     }
-    /* Tela Login */
     #loginOverlay {
       position: fixed;
       inset: 0;
@@ -209,7 +208,6 @@ javascript:(() => {
       display: none;
       text-shadow: 0 0 5px #ff4c4c;
     }
-    /* Mensagem de boas-vindas */
     #welcomeMessage {
       position: fixed;
       top: 30%;
@@ -244,10 +242,7 @@ javascript:(() => {
     if (document.getElementById("bobMenu")) return;
     const e = document.createElement("div");
     e.id = "bobMenu";
-    e.innerHTML = `
-      <div class="rgb-fechar-x" title="Fechar menu" onclick="this.parentNode.remove()">✖</div>
-      <h3>LEO V5 ULTRA</h3>
-    `;
+    e.innerHTML = `<div class="rgb-fechar-x" title="Fechar menu" onclick="this.parentNode.remove()">✖</div><h3>LEO V5 ULTRA</h3>`;
     document.body.appendChild(e);
 
     const addButton = (txt, func) => {
@@ -258,26 +253,20 @@ javascript:(() => {
       e.appendChild(b);
     };
 
+    // Funções existentes
     addButton("📚 KHAN ACADEMY", () => {
       fetch("https://raw.githubusercontent.com/Niximkk/Khanware/refs/heads/main/Khanware.js")
-        .then(res => res.text())
-        .then(eval)
+        .then(res => res.text()).then(eval)
         .catch(() => alert("❌ Erro ao carregar o script do Khan Academy."));
     });
 
     addButton("✅ TAREFA HACK V.10", () => {
-      alert(
-        "🚀 ABRINDO TAREFA HACK V.10 🚀\n\n" +
-        "🔥 Criado por Leonardo F.G 🔥"
-      );
+      alert("🚀 ABRINDO TAREFA HACK V.10 🚀\n\n🔥 Criado por Leonardo F.G 🔥");
       window.open("https://taskitos.cupiditys.lol/", "_blank");
     });
 
     addButton("📝 REDAÇÃO HACK", () => {
-      fetch("https://redacao.cupiditys.lol/")
-        .then(res => res.text())
-        .then(eval)
-        .catch(() => alert("❌ Erro ao carregar o script de Redação."));
+      window.open("https://redacao.cupiditys.lol/", "_blank");
     });
 
     addButton("📖 LEIA SP HACK V.7", () => {
@@ -295,13 +284,17 @@ javascript:(() => {
       }
     });
 
+    // NOVA FUNÇÃO - 5ª função
+    addButton("📌 KHAN AUTOMÁTICO v.1", () => {
+      fetch("https://raw.githubusercontent.com/Snowxyrzk/Khan-Destroyer/refs/heads/main/SCRIPT.js")
+        .then(t => t.text())
+        .then(eval)
+        .catch(() => alert("❌ Erro ao carregar o script KHAN AUTOMÁTICO."));
+    });
+
     const aviso = document.createElement("div");
     aviso.className = "aviso-texto";
-    aviso.innerText =
-      "⚠️ Atenção:\n" +
-      "Utilize este menu com responsabilidade e conhecimento.\n" +
-      "Recomenda-se modificar e adicionar funcionalidades conforme suas necessidades.\n\n" +
-      "LEO V5 ULTRA - Menu configurável e eficiente.";
+    aviso.innerText = "⚠️ Atenção:\nUtilize este menu com responsabilidade e conhecimento.\nRecomenda-se modificar e adicionar funcionalidades conforme suas necessidades.\n\nLEO V5 ULTRA - Menu configurável e eficiente.";
     e.appendChild(aviso);
 
     const linha = document.createElement("hr");
@@ -332,9 +325,7 @@ javascript:(() => {
     msg.id = "welcomeMessage";
     msg.innerText = "🎉 Bem-vindo, Usuário! Parabéns pelo login! 🎉";
     document.body.appendChild(msg);
-    setTimeout(() => {
-      msg.remove();
-    }, 4000);
+    setTimeout(() => { msg.remove(); }, 4000);
   };
 
   const criarLogin = () => {
